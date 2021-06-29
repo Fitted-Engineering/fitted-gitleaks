@@ -19,4 +19,5 @@ jobs:
       - name: gitleaks-custom-config
         uses: zricethezav/gitleaks-action@master
         with:
+          path: ${{GITHUB_WORKSPACE}}
           config-path: .gitleaks.toml
