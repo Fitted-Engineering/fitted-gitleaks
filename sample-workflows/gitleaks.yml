@@ -7,20 +7,14 @@ jobs:
     runs-on: ubuntu-latest
     steps:
       - name: repository-checkout
-        uses: actions/checkout@v2
-        with:
-          fetch-depth: '1'
+        uses: actions/checkout@v1
       - name: gitleaks-default-config
         uses: zricethezav/gitleaks-action@master
       - name: download-custom-gitleaks-config
         uses: wei/wget@v1
         with:
           args: -O .gitleaks.toml https://raw.githubusercontent.com/Fitted-Engineering/fitted-gitleaks/main/leaky-repo.toml
-      - run: pwd
-      - run: ls -l "${{GITHUB_WORKSPACE}}"
-      - run: ls -l /github/workspace
       - name: gitleaks-custom-config
         uses: zricethezav/gitleaks-action@master
         with:
-          path: ${{GITHUB_WORKSPACE}}
           config-path: .gitleaks.toml
