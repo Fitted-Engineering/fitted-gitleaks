@@ -1,0 +1,22 @@
+
+---
+name: leaks
+on: [push]
+jobs:
+  gitleaks:
+    runs-on: ubuntu-latest
+    steps:
+      - name: repository-checkout
+        uses: actions/checkout@v2
+        with:
+          fetch-depth: '1'
+      - name: gitleaks-default-config
+        uses: zricethezav/gitleaks-action@master
+      - name: download-custom-gitleaks-config
+        uses: wei/wget@v1
+        with:
+          args: -O .gitleaks.toml https://raw.githubusercontent.com/Fitted-Engineering/fitted-gitleaks/main/leaky-repo.toml
+      - name: gitleaks-custom-config
+        uses: zricethezav/gitleaks-action@master
+        with:
+          config-path: .gitleaks.toml
