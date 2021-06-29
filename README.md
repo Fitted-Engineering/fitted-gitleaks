@@ -1,0 +1,2 @@
+# gitleaks
+Custom GitLeaks Configuration
