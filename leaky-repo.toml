@@ -158,7 +158,7 @@ description = "ignore export "
 
 [[rules]]
 description = "Generic Credential"
-regex = '''(?i)(dbpasswd|dbuser|dbname|dbhost|api_key|apikey|secret|key|api|password|guid|hostname|pw|auth)(.{0,20})?(\s+)?([:=])+(\s+)?['|"]?([0-9a-zA-Z-_\/+!{}/=]{4,120})['|"]?'''
+regex = '''(?i)(dbpasswd|dbuser|dbname|dbhost|api_key|apikey|secret|key|password|guid|hostname|pw|auth)(.{0,20})?(\s+)?([:=])+(\s+)?['|"]?([0-9a-zA-Z-_\/+!{}/=]{4,120})['|"]?'''
 tags = ["key", "API", "generic"]
 # ignore leaks with specific identifiers like slack and aws
 [rules.allowlist]
